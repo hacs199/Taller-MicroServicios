@@ -1,0 +1,16 @@
+sever:
+  port: 8080
+spring:
+  application:
+    name: apigateway
+cloud:
+  gateway:
+    routes:
+      - id: vuelos_route
+        uri: lb://vuelos
+        predicate:
+          - path=/api/v1/vuelos/**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8787/eureka
